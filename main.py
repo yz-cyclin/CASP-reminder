@@ -11,7 +11,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(MainWindow,self).__init__()
         self.setupUi(self)
-        #初始化参数
         self.init()
         self.pushButton.clicked.connect(self.loda)
     def init(self):
@@ -22,11 +21,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         r.encoding = 'utf-8'
 
-        # 解析
         soup = BeautifulSoup(r.text, 'html.parser')
         # print(soup)
 
-        # 从页面中找某些东西：find(),find_all()
         ygtvitem = soup.find('strong').find_all("a")
 
         news_list = soup.find_all('table')
